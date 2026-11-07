@@ -13,7 +13,9 @@ A small C project where I practice low-level programming and explore how bits an
 ## Compilation
 
 ```bash
-gcc -Wall -Wextra -Werror main.c bits.c -o bit_toolbox
+make
+./bit_toolbox
+make clean
 ```
 
 Run it:
