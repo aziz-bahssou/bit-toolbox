@@ -1,27 +1,24 @@
-NAME = test
+NAME = bit_toolbox
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Wpedantic -g -fsanitize=address,undefined
 
-SRC = bits.c test.c
-OBG = $(SRC:.c=.o)
+SRC = bits.c
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBG)
-	$(CC) $(CFLAGS) $(OBG) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c bits.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-run: all
-	./$(NAME)
-
 clean:
-	rm -f $(OBG)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all run clean fclean re
+.PHONY: all clean fclean re
